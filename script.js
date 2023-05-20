@@ -11,7 +11,7 @@ class Calculator{
           
     }
     delete(){
-        this.currentOperand=this.currentOperand.toString().slice(0,-1)
+        this.currentoperand=this.currentoperand.toString().slice(0,-1)
     }
     appenedNumber(number){
         if(number === '.' && this.currentoperand.includes('.'))return
@@ -19,17 +19,17 @@ class Calculator{
     }
     chooseOperation(operation){
         if (this.currentoperand==='')return
-        if (this.previousOperand!==''){
+        if (this.previousoperand!==''){
             this.compute()
         }
         this.operation = operation
-        this.previousOperand = this.currentoperand
+        this.previousoperand = this.currentoperand
         this.currentoperand = ''
 
     }
     compute(){
         let computation
-        const prev = parseFloat(this.previousOperand)
+        const prev = parseFloat(this.previousoperand)
         const current = parseFloat(this.currentoperand)
         if(isNaN(prev) || isNaN(current)) return
         switch (this.operation){
@@ -48,9 +48,9 @@ class Calculator{
             default:
                 return    
         }
-        this.currentOperand = computation
+        this.currentoperand = computation
         this.operation = undefined
-        this.previousOperand = ''
+        this.previousoperand = ''
     }
     getDisplayNumber(number){
         const stringnumber = number.toString()
@@ -70,10 +70,10 @@ class Calculator{
         }
         updateDisplay() {
             this.currentOperandTextElement.innerText =
-              this.getDisplayNumber(this.currentOperand)
+              this.getDisplayNumber(this.currentoperand)
             if (this.operation != null) {
               this.previousOperandTextElement.innerText =
-                `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+                `${this.getDisplayNumber(this.previousoperand)} ${this.operation}`
             } else {
               this.previousOperandTextElement.innerText = ''
             }
