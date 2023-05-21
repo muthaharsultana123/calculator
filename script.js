@@ -5,8 +5,8 @@ class Calculator{
       this.clear()
     }
     clear(){
-        this.currentoperand=''
-        this.previousoperand=''
+        this.currentOperand=''
+        this.previousOperand=''
         this.operation=undefined
           
     }
@@ -14,23 +14,23 @@ class Calculator{
         this.currentOperand=this.currentOperand.toString().slice(0,-1)
     }
     appenedNumber(number){
-        if(number === '.' && this.currentoperand.includes('.'))return
-        this.currentoperand = this.currentoperand.toString() + number.toString()
+        if(number === '.' && this.currentOperand.includes('.'))return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
     }
     chooseOperation(operation){
-        if (this.currentoperand==='')return
+        if (this.currentOperand==='')return
         if (this.previousOperand!==''){
             this.compute()
         }
         this.operation = operation
-        this.previousOperand = this.currentoperand
-        this.currentoperand = ''
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
 
     }
     compute(){
         let computation
         const prev = parseFloat(this.previousOperand)
-        const current = parseFloat(this.currentoperand)
+        const current = parseFloat(this.currentOperand)
         if(isNaN(prev) || isNaN(current)) return
         switch (this.operation){
             case '+':
